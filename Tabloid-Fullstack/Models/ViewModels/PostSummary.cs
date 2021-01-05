@@ -12,7 +12,7 @@ namespace Tabloid_Fullstack.Models.ViewModels
         public string AbbreviatedText { get; set; }
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
-
-        public string PreviewText => AbbreviatedText + "...";
+        public int SpaceCount { get; set; }
+        public string PreviewText => AbbreviatedText.Substring(0, SpaceCount) + "...";
     }
 }

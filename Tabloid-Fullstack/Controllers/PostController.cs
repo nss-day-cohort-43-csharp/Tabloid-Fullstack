@@ -32,9 +32,10 @@ namespace Tabloid_Fullstack.Controllers
 
         // GET api/<PostController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult GetById(int id)
         {
-            return "value";
+            var post = _repo.GetById(id);
+            return Ok(post);
         }
 
         // POST api/<PostController>

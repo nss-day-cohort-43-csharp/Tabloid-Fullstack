@@ -7,5 +7,6 @@ namespace Tabloid_Fullstack.Repositories
     public interface IPostRepository
     {
         List<PostSummary> Get();
+        Post GetById(int id);
     }
 }

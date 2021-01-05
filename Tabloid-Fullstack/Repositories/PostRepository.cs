@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,9 +29,19 @@ namespace Tabloid_Fullstack.Repositories
                     ImageLocation = p.ImageLocation,
                     AuthorId = p.UserProfileId,
                     AuthorName = p.UserProfile.DisplayName,
-                    AbbreviatedText = p.Content.Substring(0, 50)
+                    SpaceCount = p.Content.IndexOf(' ', 50),
+                    AbbreviatedText = p.Content
                 })
                 .ToList();
+        }
+
+        public Post GetById(int id)
+        {
+            return _context.Post
+                .Include(p => p.UserProfile)
+                .Include(p => p.Category)
+                .Where(p => p.Id == id)
+                .Single();
         }
     }
 }
