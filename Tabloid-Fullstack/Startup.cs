@@ -29,6 +29,7 @@ namespace Tabloid_Fullstack
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }
