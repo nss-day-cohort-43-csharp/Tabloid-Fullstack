@@ -23,14 +23,15 @@ namespace Tabloid_Fullstack.Repositories
             return _context.Post
                 .Where(p => p.IsApproved)
                 .Where(p => p.PublishDateTime <= DateTime.Now)
+                .OrderByDescending(p => p.PublishDateTime)
                 .Select(p => new PostSummary()
                 {
                     Id = p.Id,
                     ImageLocation = p.ImageLocation,
                     AuthorId = p.UserProfileId,
                     AuthorName = p.UserProfile.DisplayName,
-                    SpaceCount = p.Content.IndexOf(' ', 50),
-                    AbbreviatedText = p.Content
+                    AbbreviatedText = p.Content.Substring(0, 50),
+                    PublishDateTime = p.PublishDateTime
                 })
                 .ToList();
         }
@@ -41,7 +42,9 @@ namespace Tabloid_Fullstack.Repositories
                 .Include(p => p.UserProfile)
                 .Include(p => p.Category)
                 .Where(p => p.Id == id)
-                .Single();
+                .FirstOrDefault();
         }
+
+        
     }
 }

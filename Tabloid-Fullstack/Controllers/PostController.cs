@@ -42,6 +42,7 @@ namespace Tabloid_Fullstack.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT api/<PostController>/5

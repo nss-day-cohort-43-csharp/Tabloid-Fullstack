@@ -8,5 +8,6 @@ namespace Tabloid_Fullstack.Repositories
     {
         List<PostSummary> Get();
         Post GetById(int id);
+ 
     }
 }
