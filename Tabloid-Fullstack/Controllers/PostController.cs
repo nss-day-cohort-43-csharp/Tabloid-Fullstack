@@ -37,24 +37,5 @@ namespace Tabloid_Fullstack.Controllers
             var post = _repo.GetById(id);
             return Ok(post);
         }
-
-        // POST api/<PostController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-
-        }
-
-        // PUT api/<PostController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<PostController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
