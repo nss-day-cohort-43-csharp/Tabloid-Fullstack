@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Login from "../pages/Login";
 
 const ApplicationViews = () => {
   return (
@@ -8,7 +9,7 @@ const ApplicationViews = () => {
         <p>Home</p>
       </Route>
       <Route path="/login">
-        <p>Login</p>
+        <Login />
       </Route>
       <Route path="/register">
         <p> Register</p>

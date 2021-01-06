@@ -1,13 +1,16 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import ApplicationViews from "./components/ApplicationViews";
+import { UserProfileProvider } from "./providers/UserProvider";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <ApplicationViews />
-      </Router>
+      <UserProfileProvider>
+        <Router>
+          <ApplicationViews />
+        </Router>
+      </UserProfileProvider>
     </div>
   );
 }
