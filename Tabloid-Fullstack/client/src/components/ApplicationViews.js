@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { UserProfileContext } from "../providers/UserProvider";
+import { UserProfileContext } from "../providers/UserProfileProvider";
 import Explore from "../pages/Explore";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PostDetails from "../pages/PostDetails";
 
 const ApplicationViews = () => {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -15,6 +16,9 @@ const ApplicationViews = () => {
       </Route>
       <Route path="/explore">
         {isLoggedIn ? <Explore /> : <Redirect to="/login" />}
+      </Route>
+      <Route path="/post/:postId">
+        {isLoggedIn ? <PostDetails /> : <Redirect to="/login" />}
       </Route>
       <Route path="/login">
         <Login />
