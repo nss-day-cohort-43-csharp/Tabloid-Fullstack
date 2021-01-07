@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tabloid_Fullstack.Data;
 using Tabloid_Fullstack.Models;
+using Tabloid_Fullstack.Models.ViewModels;
 
 namespace Tabloid_Fullstack.Repositories
 {
@@ -16,12 +18,36 @@ namespace Tabloid_Fullstack.Repositories
             _context = context;
         }
 
-        public List<Post> Get()
+        public List<PostSummary> Get()
         {
             return _context.Post
+                .Include(p => p.Category)
                 .Where(p => p.IsApproved)
                 .Where(p => p.PublishDateTime <= DateTime.Now)
+                .OrderByDescending(p => p.PublishDateTime)
+                .Select(p => new PostSummary()
+                {
+                    Id = p.Id,
+                    ImageLocation = p.ImageLocation,
+                    Title = p.Title,
+                    AuthorId = p.UserProfileId,
+                    AuthorName = p.UserProfile.DisplayName,
+                    AbbreviatedText = p.Content.Substring(0, 200),
+                    PublishDateTime = p.PublishDateTime,
+                    Category = p.Category
+                })
                 .ToList();
         }
+
+        public Post GetById(int id)
+        {
+            return _context.Post
+                .Include(p => p.UserProfile)
+                .Include(p => p.Category)
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+        }
+
+        
     }
 }
