@@ -5,7 +5,9 @@ const PostList = ({ posts }) => {
   return (
     <div>
       {posts.map((post) => (
-        <PostSummaryCard key={post.id} post={post} />
+        <div className="m-4" key={post.id}>
+          <PostSummaryCard post={post} />
+        </div>
       ))}
     </div>
   );

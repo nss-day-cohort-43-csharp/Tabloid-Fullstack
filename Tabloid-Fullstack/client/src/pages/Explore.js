@@ -13,8 +13,11 @@ const Explore = () => {
   }, []);
 
   return (
-    <div>
-      <PostList posts={posts} />
+    <div className="row">
+      <div className="col-2"></div>
+      <div className="col-10">
+        <PostList posts={posts} />
+      </div>
     </div>
   );
 };
