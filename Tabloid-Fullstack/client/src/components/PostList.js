@@ -1,17 +1,11 @@
 import React from "react";
+import PostSummaryCard from "./PostSummaryCard";
 
 const PostList = ({ posts }) => {
   return (
     <div>
       {posts.map((post) => (
-        <div key={post.id}>
-          <p>{post.title}</p>
-          <p>{post.previewText}</p>
-          <p>{post.imageLocation}</p>
-          <p>{post.authorName}</p>
-          <p>{post.publishDateTime}</p>
-          <p>{post.category.name}</p>
-        </div>
+        <PostSummaryCard key={post.id} post={post} />
       ))}
     </div>
   );

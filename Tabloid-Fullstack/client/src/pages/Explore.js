@@ -8,7 +8,6 @@ const Explore = () => {
     fetch("/api/post")
       .then((res) => res.json())
       .then((posts) => {
-        console.log(posts);
         setPosts(posts);
       });
   }, []);

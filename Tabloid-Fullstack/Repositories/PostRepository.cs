@@ -32,7 +32,7 @@ namespace Tabloid_Fullstack.Repositories
                     Title = p.Title,
                     AuthorId = p.UserProfileId,
                     AuthorName = p.UserProfile.DisplayName,
-                    AbbreviatedText = p.Content.Substring(0, 50),
+                    AbbreviatedText = p.Content.Substring(0, 200),
                     PublishDateTime = p.PublishDateTime,
                     Category = p.Category
                 })
