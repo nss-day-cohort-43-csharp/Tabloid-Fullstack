@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -16,30 +17,31 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     login(email, password)
-      .then(() => {
+      .then((user) => {
         setLoading(false);
+        toast.info(`Welcome back ${user.displayName}`);
         history.push("/");
       })
       .catch((err) => {
         setLoading(false);
-        alert("Invalid username or password");
+        toast.error("Invalid email or password");
       });
   };
 
   return (
     <div className="login-form">
       <form onSubmit={handleSubmit}>
-        <div className="avatar">
-          <img src="/some/image.png" alt="Avatar" />
+        <div className="avatar bg-primary">
+          <img src="/quill.png" alt="Avatar" />
         </div>
         <h2 className="text-center">User Login</h2>
         <div className="form-group">
           <Input
             onChange={(e) => setEmail(e.target.value)}
-            type="text"
+            type="email"
             className="form-control"
-            name="username"
-            placeholder="Username"
+            name="email"
+            placeholder="Email"
             required="required"
           />
         </div>
@@ -54,7 +56,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <Button type="submit" block color="primary" disabled={loading}>
+          <Button type="submit" block color="danger" disabled={loading}>
             Sign in
           </Button>
         </div>

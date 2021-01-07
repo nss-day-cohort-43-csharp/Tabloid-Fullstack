@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const ApplicationViews = () => {
   return (
@@ -12,7 +13,7 @@ const ApplicationViews = () => {
         <Login />
       </Route>
       <Route path="/register">
-        <p> Register</p>
+        <Register />
       </Route>
     </Switch>
   );
