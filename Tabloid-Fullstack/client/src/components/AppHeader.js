@@ -71,7 +71,11 @@ const AppHeader = () => {
               </>
             )}
           </Nav>
-          {user ? <NavbarText>Welcome {user.displayName}</NavbarText> : null}
+          {user ? (
+            <NavbarText className="d-sm-none d-md-block">
+              Welcome {user.displayName}
+            </NavbarText>
+          ) : null}
         </Collapse>
       </Navbar>
     </div>

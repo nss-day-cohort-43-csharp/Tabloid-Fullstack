@@ -10,6 +10,7 @@ namespace Tabloid_Fullstack.Models.ViewModels
     {
         public int Id { get; set; }
         public string ImageLocation { get; set; }
+        public string Title { get; set; }
         [JsonIgnore]
         public string AbbreviatedText { get; set; }
         public int AuthorId { get; set; }
@@ -17,7 +18,6 @@ namespace Tabloid_Fullstack.Models.ViewModels
 
         public DateTime? PublishDateTime { get; set; }
         public string PreviewText => AbbreviatedText + "...";
-
-
+        public Category Category { get; set; }
     }
 }

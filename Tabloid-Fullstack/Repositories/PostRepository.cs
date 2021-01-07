@@ -21,6 +21,7 @@ namespace Tabloid_Fullstack.Repositories
         public List<PostSummary> Get()
         {
             return _context.Post
+                .Include(p => p.Category)
                 .Where(p => p.IsApproved)
                 .Where(p => p.PublishDateTime <= DateTime.Now)
                 .OrderByDescending(p => p.PublishDateTime)
@@ -28,10 +29,12 @@ namespace Tabloid_Fullstack.Repositories
                 {
                     Id = p.Id,
                     ImageLocation = p.ImageLocation,
+                    Title = p.Title,
                     AuthorId = p.UserProfileId,
                     AuthorName = p.UserProfile.DisplayName,
                     AbbreviatedText = p.Content.Substring(0, 50),
-                    PublishDateTime = p.PublishDateTime
+                    PublishDateTime = p.PublishDateTime,
+                    Category = p.Category
                 })
                 .ToList();
         }
