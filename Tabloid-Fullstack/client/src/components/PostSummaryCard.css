@@ -1,3 +1,7 @@
+.post-summary__card {
+  background: #fbfbfb;
+}
+
 .post-summary__img {
   background-size: cover;
   background-position: center;
