@@ -88,9 +88,23 @@ export function UserProfileProvider(props) {
     return JSON.parse(user);
   };
 
+  const isAdmin = () => {
+    const user = getCurrentUser();
+    const adminTypeId = 1;
+    return user !== null && user.userTypeId === adminTypeId;
+  };
+
   return (
     <UserProfileContext.Provider
-      value={{ isLoggedIn, login, logout, register, getToken, getCurrentUser }}
+      value={{
+        isLoggedIn,
+        login,
+        logout,
+        register,
+        getToken,
+        getCurrentUser,
+        isAdmin,
+      }}
     >
       {isFirebaseReady ? (
         props.children
