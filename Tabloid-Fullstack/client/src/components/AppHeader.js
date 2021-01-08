@@ -11,10 +11,10 @@ import {
   NavLink,
   NavbarText,
 } from "reactstrap";
-import { UserProfileContext } from "../providers/UserProvider";
+import { UserProfileContext } from "../providers/UserProfileProvider";
 
 const AppHeader = () => {
-  const { getCurrentUser, logout } = useContext(UserProfileContext);
+  const { getCurrentUser, logout, isAdmin } = useContext(UserProfileContext);
   const user = getCurrentUser();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +52,13 @@ const AppHeader = () => {
                     Explore
                   </NavLink>
                 </NavItem>
+                {isAdmin() && (
+                  <NavItem>
+                    <NavLink to="/categories" tag={Link}>
+                      Categories
+                    </NavLink>
+                  </NavItem>
+                )}
                 <NavItem>
                   <NavLink onClick={logoutAndReturn}>Logout</NavLink>
                 </NavItem>

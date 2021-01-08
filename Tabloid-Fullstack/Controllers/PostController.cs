@@ -35,6 +35,10 @@ namespace Tabloid_Fullstack.Controllers
         public IActionResult GetById(int id)
         {
             var post = _repo.GetById(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
             return Ok(post);
         }
     }

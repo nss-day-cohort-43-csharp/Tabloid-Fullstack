@@ -1,0 +1,15 @@
+.post-details__jumbo {
+  min-height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.post-details__avatar {
+  height: 2rem;
+  width: auto;
+}
+
+.post-details__content {
+  line-height: 30px;
+}
