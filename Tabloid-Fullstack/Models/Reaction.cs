@@ -9,7 +9,7 @@ namespace Tabloid_Fullstack.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string ImageLocation { get; set; }
+        public string Emoji { get; set; }
         public List<PostReaction> PostReactions { get; set; }
     }
 }

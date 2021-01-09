@@ -105,7 +105,7 @@ CREATE TABLE [PostTag] (
 CREATE TABLE [Reaction] (
   [Id] integer PRIMARY KEY IDENTITY,
   [Name] nvarchar(50) NOT NULL,
-  [ImageLocation] nvarchar(255) NOT NULL
+  [Emoji] nvarchar(10) NOT NULL
 )
 
 CREATE TABLE [PostReaction] (
