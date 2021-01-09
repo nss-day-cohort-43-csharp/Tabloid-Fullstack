@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Jumbotron } from "reactstrap";
+import PostReactions from "../components/PostReactions";
 import formatDate from "../utils/dateFormatter";
 import "./PostDetails.css";
 
 const PostDetails = () => {
   const { postId } = useParams();
   const [post, setPost] = useState();
+  const [reactionCounts, setReactionCounts] = useState([]);
 
   useEffect(() => {
     fetch(`/api/post/${postId}`)
@@ -18,8 +20,9 @@ const PostDetails = () => {
         }
         return res.json();
       })
-      .then((post) => {
-        setPost(post);
+      .then((data) => {
+        setPost(data.post);
+        setReactionCounts(data.reactionCounts);
       });
   }, [postId]);
 
@@ -48,6 +51,9 @@ const PostDetails = () => {
           </div>
         </div>
         <div className="text-justify post-details__content">{post.content}</div>
+        <div className="my-4">
+          <PostReactions postReactions={reactionCounts} />
+        </div>
       </div>
     </div>
   );

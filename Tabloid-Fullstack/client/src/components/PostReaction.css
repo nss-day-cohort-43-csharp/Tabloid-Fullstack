@@ -1,0 +1,11 @@
+.post-reaction__pill {
+  cursor: pointer;
+  transition: all 0.5s;
+  font-size: 0.9em;
+}
+
+.post-reaction__pill:hover {
+  transform: scale(1.1);
+  background-color: #343a40;
+  color: white;
+}

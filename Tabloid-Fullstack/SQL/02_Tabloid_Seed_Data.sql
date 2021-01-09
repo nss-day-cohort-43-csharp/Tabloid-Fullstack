@@ -224,3 +224,33 @@ insert into Comment (Id, PostId, UserProfileId, Subject, Content, CreateDateTime
 insert into Comment (Id, PostId, UserProfileId, Subject, Content, CreateDateTime) values (31, 22, 8, 'Donec ut dolor.', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '2020-06-29');
 insert into Comment (Id, PostId, UserProfileId, Subject, Content, CreateDateTime) values (32, 7, 10, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '2020-06-15');
 set identity_insert [Comment] off
+
+set identity_insert [Reaction] on
+insert into Reaction (Id, Name, ImageLocation) values (1, 'Thumbs Up', N'👍');
+insert into Reaction (Id, Name, ImageLocation) values (2, 'Joy', N'😂');
+insert into Reaction (Id, Name, ImageLocation) values (3, 'Thumbs Down', N'👎');
+insert into Reaction (Id, Name, ImageLocation) values (4, 'Heart', N'💗');
+set identity_insert [Reaction] off
+
+set identity_insert [PostReaction] on
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (1, 2, 2, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (2, 2, 1, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (3, 2, 1, 2);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (4, 2, 1, 3);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (5, 3, 2, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (6, 3, 1, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (7, 3, 1, 2);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (8, 3, 1, 3);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (9, 4, 2, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (10, 4, 1, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (11, 4, 1, 2);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (12, 4, 1, 3);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (13, 5, 2, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (14, 5, 1, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (15, 5, 1, 2);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (16, 5, 1, 3);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (17, 6, 2, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (18, 6, 1, 1);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (19, 6, 1, 2);
+insert into PostReaction (Id, PostId, ReactionId, UserProfileId) values (20, 6, 1, 3);
+set identity_insert [PostReaction] off

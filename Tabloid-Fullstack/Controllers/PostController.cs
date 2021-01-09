@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tabloid_Fullstack.Models.ViewModels;
 using Tabloid_Fullstack.Repositories;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Tabloid_Fullstack.Controllers
 {
@@ -22,7 +21,6 @@ namespace Tabloid_Fullstack.Controllers
         }
 
 
-        // GET: api/<PostController>
         [HttpGet]
         public IActionResult Get()
         {
@@ -30,7 +28,6 @@ namespace Tabloid_Fullstack.Controllers
             return Ok(posts);
         }
 
-        // GET api/<PostController>/5
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -39,7 +36,14 @@ namespace Tabloid_Fullstack.Controllers
             {
                 return NotFound();
             }
-            return Ok(post);
+
+            var reactionCounts = _repo.GetReactionCounts(id);
+            var postDetails = new PostDetails()
+            {
+                Post = post,
+                ReactionCounts = reactionCounts
+            };
+            return Ok(postDetails);
         }
     }
 }

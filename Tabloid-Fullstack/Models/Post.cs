@@ -25,5 +25,6 @@ namespace Tabloid_Fullstack.Models
         public Category Category { get; set; }
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
+        public List<PostReaction> PostReactions { get; set; }
     }
 }

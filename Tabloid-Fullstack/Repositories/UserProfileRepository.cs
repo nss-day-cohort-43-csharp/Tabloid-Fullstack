@@ -22,6 +22,7 @@ namespace Tabloid_Fullstack.Repositories
         {
             return _context.UserProfile
                 .Include(up => up.UserType)
+                .Include(up => up.Post)
                 .FirstOrDefault(up => up.FirebaseUserId == firebaseUserId);
 
         }

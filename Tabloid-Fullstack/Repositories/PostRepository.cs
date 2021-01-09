@@ -48,6 +48,15 @@ namespace Tabloid_Fullstack.Repositories
                 .FirstOrDefault();
         }
 
-        
+        public List<ReactionCount> GetReactionCounts(int postId)
+        {
+            return _context.Reaction
+                .Select(r => new ReactionCount()
+                {
+                    Reaction = r,
+                    Count = r.PostReactions.Count(pr => pr.PostId == postId)
+                })
+                .ToList();
+        }
     }
 }
