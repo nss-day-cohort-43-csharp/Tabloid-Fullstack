@@ -18,15 +18,13 @@
 
 1. `cd` into Tabloid-Fullstack/Tabloid-Fullstack and enter `touch appsettings.Local.json`
 1. Paste the following into the appsettings.Local.json file:
-`
-{
-  "FirebaseProjectId": "YOUR_FIREBASE_PROJECT_ID"
-}
-`
-1. Replace the placeholder with your firebase project id 
+   `{ "FirebaseProjectId": "YOUR_FIREBASE_PROJECT_ID" }`
+1. Replace the placeholder with your firebase project id
 
-1. Open your `client` directory in VsCode. Open the `.env.local.example` file and replace `__YOUR_API_KEY_HERE__` with your own firebase Web API Key
+1. Open your `client` directory in VsCode. Create a file in the same directory as `.env.local.example` and name it `.env.local`. Paste in this and replace the placeholder with your actual Firebase API key
 
-1. Rename the `.env.local.example` file to remove the `.example` extension. This file should now just be called `.env.local`
+```
+REACT_APP_API_KEY=YOUR_FIREBASE_API_KEY_HERE
+```
 
 1. Install your dependencies by running `npm install` from the same directory as your `package.json` file
